@@ -1,3 +1,738 @@
+@import './adaptation.scss';
+
+// Backdowns
+$padding-tiny: 7px;
+$padding-tiny-small: 12px;
+$padding-small: 18px;
+$margin-tiny: 12px;
+$margin-small: 18px;
+$margin-small-medium: 24px;
+$margin-medium: 28px;
+$margin-large: 33px;
+$margin-huge: 48px;
+$margin-extra-huge: 65px;
+$margin-extra-huge-double: 100px;
+$padding-large: 46px;
+$padding-huge: 60px;
+$border-huge: 70px;
+$position-tiny: 15px;
+$position-small: 50px;
+$position-large: 200px;
+$backdown-medium: 170px;
+$backdown-large: 225px;
+$backdown-huge: 415px;
+$height-max: 150vh;
+$radius-small: 8px;
+$radius-rounde: 50%;
+$core-index: 100;
+//
+
+// Font sizes
+$font-size-small: 16px;
+$font-size-medium: 18px;
+$font-size-large: 24px;
+$font-size-huge: 58px;
+$line-height-medium: 32px;
+$line-height-huge: 67px;
+$font-weight-medium-bold: 600;
+$font-weight-bold: 700;
+$font-family-core: 'Mukta', sans-serif;
+$letter-spacing-small: 1.9px;
+$letter-spacing-medium: 3px;
+//
+
+// Colors
+$color-black: #000000;
+$color-white: #ffffff;
+$color-blue: #2a45c2;
+$color-grey: #565468;
+$color-rounde-padding: rgba(
+   $color: #ffffff,
+   $alpha: 0.03,
+);
+$color-rounde-border: rgba(
+   $color: #ffffff,
+   $alpha: 0.01,
+);
+$opacity-transparent: 0.2;
+$core-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+//
+
+// Core page styles
+
 body {
-   background-color: #1f3757;
+   display: flex;
+   justify-content: center;
+   overflow: hidden;
+   margin: 0;
+   height: $height-max;
+   background: radial-gradient(
+      134.34% 134.34% at 50% 0%,
+      #1f3757 0%,
+      #131537 100%
+   );
+}
+
+.main {
+   width: 1500px;
+   position: absolute;
+   font-style: normal;
+   overflow: hidden;
+   font-family: 'Barlow Semi Condensed';
+}
+
+// Core page styles was finished
+
+//
+//
+
+// Header section
+
+.header-section {
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   max-width: 900px;
+   margin-top: $margin-huge;
+   border-radius: 15px;
+   border: 3px solid rgba(255, 255, 255, 0.289199);
+}
+
+.header-logo {
+   margin-left: $margin-large;
+   margin-top: $margin-medium;
+   margin-bottom: $margin-medium;
+}
+
+//  The same logo but mini
+
+.logo-small {
+   display: none;
+}
+
+//
+
+.header-score {
+   padding-top: 16px;
+   padding-left: $padding-large;
+   padding-right: $padding-large;
+   margin-top: $margin-small;
+   margin-right: $margin-large;
+   margin-bottom: $margin-small;
+   border-radius: $radius-small;
+   box-shadow: $core-shadow;
+   background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
+}
+
+.logo-text {
+   margin: 0;
+   font-size: $font-size-small;
+   font-weight: $font-weight-bold;
+   letter-spacing: 1px;
+   color: $color-blue;
+}
+
+.counter-number {
+   margin: 0;
+   font-size: $font-size-huge;
+   line-height: $line-height-huge;
+   font-weight: $font-weight-bold;
+   letter-spacing: -1px;
+   color: $color-grey;
+}
+
+// Header section styles was finished
+
+//
+//
+
+// Main section choice your sign
+
+.container {
+   max-width: 600px;
+   margin: 0 auto;
+   margin-top: $margin-extra-huge;
+   // display: none;
+}
+
+.choice-up {
+   text-align: center;
+   margin-bottom: $margin-large;
+
+   * {
+      display: inline-block;
+   }
+
+   .bettwen {
+      position: relative;
+      bottom: 25px;
+      z-index: 0;
+      height: $backdown-medium;
+      padding: $padding-tiny;
+      margin-left: $margin-large;
+      margin-right: $margin-large;
+      opacity: $opacity-transparent;
+      background-color: $color-black;
+      transform: rotate(90deg);
+   }
+}
+
+.paper-img,
+.scissors-img,
+.rock-img {
+   cursor: pointer;
+   position: relative;
+   z-index: 100;
+   padding-bottom: $padding-tiny-small;
+   border-radius: 50%;
+   padding-top: $padding-small;
+   padding-left: $padding-small;
+   padding-right: $padding-small;
+}
+
+// The same imagens but mini
+
+.paper-img-small,
+.scissors-img-small,
+.rock-img-small {
+   display: none;
+}
+
+//
+
+.paper-img:hover,
+.scissors-img:hover,
+.rock-img:hover {
+   background: rgba($color: $color-white, $alpha: 0.05);
+}
+
+.choice-down {
+   text-align: center;
+
+   .before {
+      position: relative;
+      left: 130px;
+      z-index: 0;
+      width: $backdown-medium;
+      padding: $padding-tiny;
+      opacity: $opacity-transparent;
+      background-color: $color-black;
+      transform: rotate(60deg);
+   }
+
+   .after {
+      position: relative;
+      left: 295px;
+      bottom: 300px;
+      z-index: 0;
+      width: $backdown-medium;
+      padding: $padding-tiny;
+      opacity: $opacity-transparent;
+      background-color: $color-black;
+      transform: rotate(-60deg);
+   }
+}
+
+//  Main section styles was finished
+
+//
+//
+
+// Batle result section
+
+// Batle result section firts: human choice and position
+
+.batle-result {
+   display: flex;
+   justify-content: space-around;
+   margin-top: $margin-extra-huge;
+   display: none;
+}
+
+.first-user,
+.second-user {
+   text-align: center;
+}
+
+.first-user-choice,
+.second-user-choice {
+   font-size: $font-size-large;
+   letter-spacing: $letter-spacing-medium;
+   font-weight: $font-weight-bold;
+   line-height: $line-height-medium;
+   color: $color-white;
+   text-shadow: $core-shadow;
+   margin-bottom: $margin-extra-huge;
+}
+
+.first-chosen-item {
+   display: block;
+}
+
+.first-chosen-item-small {
+   display: none;
+}
+
+.second-user-before-choice {
+   border-radius: $radius-rounde;
+   padding: 150px;
+   background: rgba(0, 0, 0, 0.1);
+}
+
+// Batle result section firts: human choice and position was finished
+
+// Batle result section second: human choice, computer choice and who won
+
+.result {
+   display: flex;
+   justify-content: space-around;
+   text-align: center;
+   margin-top: $margin-extra-huge;
+   display: none;
+}
+
+.result-firts-user-choice-item,
+.result-second-user-choice-item {
+   position: relative;
+   bottom: $position-large;
+   border-radius: $radius-rounde;
+   padding: $border-huge;
+   border: $border-huge solid transparent;
+}
+
+.result-first-user-choice,
+.result-second-user-choice {
+   position: relative;
+   z-index: 0;
+   font-size: $font-size-large;
+   letter-spacing: $letter-spacing-medium;
+   font-weight: $font-weight-bold;
+   line-height: $line-height-medium;
+   color: $color-white;
+   text-shadow: $core-shadow;
+   margin-bottom: $margin-extra-huge;
+}
+
+.result-first-chosen-item,
+.result-second-chosen-item {
+   border-radius: $radius-rounde;
+   border: $border-huge solid transparent;
+}
+
+.result-first-chosen-item-small,
+.result-second-chosen-item-small {
+   display: none;
+}
+
+.winner-item {
+   border-radius: $radius-rounde;
+   border: $border-huge solid rgba($color: $color-white, $alpha: 0.02);
+}
+
+.winner {
+   border-radius: $radius-rounde;
+   padding: $border-huge;
+   background-clip: padding-box;
+   background-color: rgba($color: $color-white, $alpha: 0.02);
+   border: $border-huge solid rgba($color: $color-white, $alpha: 0.01);
+}
+
+.result-finish {
+   position: absolute;
+   top: 450px;
+   text-align: center;
+   // display: none;
+}
+
+.finish-winner,
+.finish-loser {
+   margin: 0;
+   margin-bottom: $margin-small;
+   font-weight: $font-weight-bold;
+   font-size: $font-size-huge;
+   line-height: $line-height-huge;
+   text-align: center;
+   color: $color-white;
+   text-shadow: $core-shadow;
+}
+
+.finish-winner {
+   display: block;
+}
+
+.finish-loser {
+   display: none;
+}
+
+.start-again {
+   border-radius: $radius-small;
+   padding: 15px 50px;
+   font-weight: $font-weight-medium-bold;
+   font-size: $font-size-small;
+   line-height: 19px;
+   letter-spacing: 2.5px;
+   color: #3b4262;
+}
+
+.start-again:hover {
+   color: #db2e4d;
+}
+
+// Batle result section second: human choice, computer choice and who won
+
+// Batle result section was finished
+
+//
+//
+
+// Footer section, it contains modal window
+
+// Open modal window button
+
+.show-rules {
+   position: fixed;
+   bottom: 0;
+   right: 0;
+   margin-right: $margin-large;
+}
+
+.rules-logo {
+   cursor: pointer;
+   font-size: $font-size-small;
+   font-style: normal;
+   font-weight: $font-weight-medium-bold;
+   line-height: 19px;
+   text-align: center;
+   letter-spacing: 2.5px;
+   padding: 10px 45px;
+   color: $color-white;
+   border: 1px solid $color-white;
+   border-radius: $radius-small;
+}
+
+.rules-logo:hover {
+   color: $color-black;
+   background-color: $color-white;
+}
+
+// Modal window styles was finished
+
+//
+//
+
+// Rules modal window
+
+.rules {
+   display: flex;
+   justify-content: center;
+   display: none;
+}
+
+.rules-modal {
+   display: grid;
+   grid-template-columns: 2fr 2fr;
+   width: $backdown-huge;
+   height: $backdown-huge;
+   position: absolute;
+   top: $backdown-medium;
+   z-index: 300;
+   background: $color-white;
+   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
+   border-radius: $radius-small;
+}
+
+.cap-logo {
+   font-size: 32px;
+   font-weight: $font-weight-bold;
+   line-height: $line-height-medium;
+   margin-top: $margin-large;
+   margin-left: $margin-large;
+   color: #3b4262;
+}
+
+.cap-close {
+   text-align: right;
+   cursor: pointer;
+   margin-top: 38px;
+   margin-right: $margin-large;
+}
+
+.modal-guide {
+   grid-column-start: 1;
+   grid-column-end: 3;
+   text-align: center;
+}
+
+.overlay {
+   position: relative;
+   z-index: 200;
+   width: 100vw;
+   height: $height-max;
+   background-color: $color-black;
+   opacity: 0.5;
+   display: none;
+}
+
+// Rules modal window styles was finished
+
+// Footer section styles was finished
+
+// Adaptation
+
+@media (max-width: 900px) {
+   .main {
+      max-width: 400px;
+      height: 110vh;
+   }
+
+   // Adaptation header section
+
+   .header-section {
+      max-width: 320px;
+      border-radius: 0;
+
+      // Header Section
+
+      .header-logo {
+         margin-left: $margin-small-medium;
+         margin-top: $margin-small-medium;
+         margin-bottom: $margin-small-medium;
+      }
+
+      .logo-big {
+         display: none;
+      }
+
+      .logo-small {
+         display: block;
+      }
+
+      .header-score {
+         margin-top: $margin-tiny;
+         margin-right: $margin-tiny;
+         margin-bottom: $margin-tiny;
+         padding: 0px 22px;
+         border-radius: $radius-small;
+         box-shadow: $core-shadow;
+         background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
+      }
+
+      .logo-text {
+         margin-top: 15px;
+         font-size: 10px;
+         line-height: 12px;
+         font-weight: $font-weight-medium-bold;
+         letter-spacing: 1px;
+         color: $color-blue;
+      }
+
+      .counter-number {
+         font-size: 40px;
+         line-height: 40px;
+         letter-spacing: -1px;
+         font-weight: $font-weight-bold;
+         color: $color-grey;
+      }
+   }
+
+   // Adaptation container section
+
+   .container {
+      margin-top: $margin-extra-huge-double;
+      width: 370px;
+
+      .choice-up {
+         text-align: initial;
+         margin-bottom: 0;
+      }
+
+      .choice-down {
+         text-align: -webkit-center;
+      }
+
+      .before {
+         left: -50px;
+         width: 130px;
+      }
+
+      .after {
+         left: 50px;
+         bottom: 175px;
+      }
+
+      .paper-img,
+      .scissors-img,
+      .rock-img {
+         display: none;
+      }
+
+      .paper-img-small,
+      .scissors-img-small,
+      .rock-img-small {
+         cursor: pointer;
+         position: relative;
+         z-index: 100;
+         padding-bottom: $padding-tiny-small;
+         border-radius: 50%;
+         padding-top: $padding-small;
+         padding-left: $padding-small;
+         padding-right: $padding-small;
+         display: block;
+      }
+
+      .paper-img-small:hover,
+      .scissors-img-small:hover,
+      .rock-img-small:hover {
+         background: rgba($color: $color-white, $alpha: 0.05);
+      }
+
+      .bettwen {
+         bottom: 0;
+         margin: 0;
+      }
+   }
+
+   // Adaptation show modal
+
+   .show-rules {
+      position: fixed;
+      bottom: 56px;
+      right: 23%;
+   }
+
+   // Adaptation rules modal
+
+   .rules-modal {
+      position: fixed;
+      height: 100vh;
+      width: 100vw;
+      top: 0;
+   }
+
+   .cap-logo {
+      margin-top: $margin-extra-huge-double;
+      grid-column: 1/3;
+      text-align: center;
+      margin-left: 0;
+   }
+
+   .cap-close {
+      margin: 0;
+      margin-right: -$padding-tiny-small;
+   }
+
+   .modal-guide {
+      grid-row: 2/2;
+   }
+
+   // Adaptation batle result
+   // First human choice
+
+   .first-user,
+   .second-user {
+      display: grid;
+   }
+
+   .first-chosen-item {
+      display: none;
+   }
+
+   .first-chosen-item-small {
+      display: block;
+   }
+
+   .second-user-before-choice {
+      display: inline-block;
+      padding: 70px;
+   }
+
+   .first-user-choice,
+   .second-user-choice {
+      grid-row: 2/2;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-small;
+      line-height: $line-height-medium;
+      letter-spacing: $letter-spacing-small;
+      color: $color-white;
+      text-shadow: $core-shadow;
+   }
+
+   // Result bettwen human and computer
+
+   .result-first-user,
+   .result-second-user {
+      display: grid;
+      justify-items: center;
+   }
+
+   .result-first-user-choice,
+   .result-second-user-choice {
+      grid-row: 2/2;
+      margin-top: -$margin-extra-huge-double;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-small;
+      line-height: $line-height-medium;
+      letter-spacing: $letter-spacing-small;
+      color: $color-white;
+      text-shadow: $core-shadow;
+   }
+
+   .result-first-chosen-item-small,
+   .result-second-chosen-item-small {
+      display: block;
+   }
+
+   .result-first-chosen-item,
+   .result-second-chosen-item {
+      display: none;
+   }
+
+   .result-finish {
+      position: absolute;
+      top: 500px;
+   }
+
+   .result-firts-user-choice-item,
+   .result-second-user-choice-item {
+      position: relative;
+      bottom: 50px;
+      border-radius: $radius-rounde;
+      padding: 25px;
+      border: 25px solid transparent;
+   }
+
+   .result-firts-user-choice-item {
+      left: 29px;
+   }
+
+   .result-second-user-choice-item {
+      right: 21px;
+   }
+
+   .result-first-user-choice {
+      margin-left: 50px;
+   }
+
+   .result-second-user-choice {
+      margin-right: 50px;
+   }
+
+   .result-first-chosen-item-small,
+   .result-second-chosen-item-small {
+      border-radius: $radius-rounde;
+      border: 25px solid transparent;
+   }
+
+   .winner {
+      border-radius: $radius-rounde;
+      padding: 25px;
+      background-clip: padding-box;
+      background-color: rgba($color: $color-white, $alpha: 0.02);
+      border: 25px solid rgba($color: $color-white, $alpha: 0.01);
+   }
+
+   .winner-item {
+      border-radius: $radius-rounde;
+      border: 25px solid rgba($color: $color-white, $alpha: 0.02);
+   }
 }
