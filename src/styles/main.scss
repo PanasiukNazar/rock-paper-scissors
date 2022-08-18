@@ -1,5 +1,3 @@
-@import './adaptation.scss';
-
 // Backdowns
 $padding-tiny: 7px;
 $padding-tiny-small: 12px;
@@ -13,18 +11,16 @@ $margin-huge: 48px;
 $margin-extra-huge: 65px;
 $margin-extra-huge-double: 100px;
 $padding-large: 46px;
-$padding-huge: 60px;
 $border-huge: 70px;
-$position-tiny: 15px;
-$position-small: 50px;
 $position-large: 200px;
 $backdown-medium: 170px;
-$backdown-large: 225px;
 $backdown-huge: 415px;
 $height-max: 150vh;
 $radius-small: 8px;
 $radius-rounde: 50%;
 $core-index: 100;
+$imagen-size-small: 130px;
+$imagen-size-big: 300px;
 //
 
 // Font sizes
@@ -132,6 +128,10 @@ body {
    color: $color-blue;
 }
 
+.score-counter {
+   text-align: center;
+}
+
 .counter-number {
    margin: 0;
    font-size: $font-size-huge;
@@ -152,7 +152,6 @@ body {
    max-width: 600px;
    margin: 0 auto;
    margin-top: $margin-extra-huge;
-   // display: none;
 }
 
 .choice-up {
@@ -190,16 +189,6 @@ body {
    padding-right: $padding-small;
 }
 
-// The same imagens but mini
-
-.paper-img-small,
-.scissors-img-small,
-.rock-img-small {
-   display: none;
-}
-
-//
-
 .paper-img:hover,
 .scissors-img:hover,
 .rock-img:hover {
@@ -207,11 +196,14 @@ body {
 }
 
 .choice-down {
-   text-align: center;
+   .down-rock {
+      display: flex;
+      justify-content: center;
+   }
 
    .before {
       position: relative;
-      left: 130px;
+      right: 80px;
       z-index: 0;
       width: $backdown-medium;
       padding: $padding-tiny;
@@ -222,8 +214,8 @@ body {
 
    .after {
       position: relative;
-      left: 295px;
-      bottom: 300px;
+      left: 80px;
+      bottom: 270px;
       z-index: 0;
       width: $backdown-medium;
       padding: $padding-tiny;
@@ -242,7 +234,7 @@ body {
 
 // Batle result section firts: human choice and position
 
-.batle-result {
+.batle {
    display: flex;
    justify-content: space-around;
    margin-top: $margin-extra-huge;
@@ -266,16 +258,14 @@ body {
 }
 
 .first-chosen-item {
+   height: auto;
+   width: $imagen-size-big;
    display: block;
-}
-
-.first-chosen-item-small {
-   display: none;
 }
 
 .second-user-before-choice {
    border-radius: $radius-rounde;
-   padding: 150px;
+   padding: 145px;
    background: rgba(0, 0, 0, 0.1);
 }
 
@@ -315,14 +305,16 @@ body {
 
 .result-first-chosen-item,
 .result-second-chosen-item {
+   height: 100%;
+   width: $imagen-size-big;
    border-radius: $radius-rounde;
    border: $border-huge solid transparent;
 }
 
-.result-first-chosen-item-small,
-.result-second-chosen-item-small {
-   display: none;
-}
+// .result-first-chosen-item-small,
+// .result-second-chosen-item-small {
+//    display: none;
+// }
 
 .winner-item {
    border-radius: $radius-rounde;
@@ -341,10 +333,11 @@ body {
    position: absolute;
    top: 450px;
    text-align: center;
-   // display: none;
+   display: none;
 }
 
 .finish-winner,
+.finish-tie,
 .finish-loser {
    margin: 0;
    margin-bottom: $margin-small;
@@ -356,11 +349,9 @@ body {
    text-shadow: $core-shadow;
 }
 
-.finish-winner {
-   display: block;
-}
-
-.finish-loser {
+.finish-winner,
+.finish-loser,
+.finish-tie {
    display: none;
 }
 
@@ -541,18 +532,14 @@ body {
       margin-top: $margin-extra-huge-double;
       width: 370px;
 
-      .choice-up {
-         text-align: initial;
-         margin-bottom: 0;
-      }
-
-      .choice-down {
-         text-align: -webkit-center;
+      .up-paper {
+         display: flex;
+         justify-content: center;
       }
 
       .before {
          left: -50px;
-         width: 130px;
+         width: $imagen-size-small;
       }
 
       .after {
@@ -563,12 +550,8 @@ body {
       .paper-img,
       .scissors-img,
       .rock-img {
-         display: none;
-      }
-
-      .paper-img-small,
-      .scissors-img-small,
-      .rock-img-small {
+         height: $imagen-size-small;
+         width: $imagen-size-small;
          cursor: pointer;
          position: relative;
          z-index: 100;
@@ -580,9 +563,9 @@ body {
          display: block;
       }
 
-      .paper-img-small:hover,
-      .scissors-img-small:hover,
-      .rock-img-small:hover {
+      .paper-img:hover,
+      .scissors-img:hover,
+      .rock-img:hover {
          background: rgba($color: $color-white, $alpha: 0.05);
       }
 
@@ -604,8 +587,8 @@ body {
 
    .rules-modal {
       position: fixed;
-      height: 100vh;
-      width: 100vw;
+      height: 110vh;
+      width: 110vw;
       top: 0;
    }
 
@@ -634,11 +617,8 @@ body {
    }
 
    .first-chosen-item {
-      display: none;
-   }
-
-   .first-chosen-item-small {
-      display: block;
+      height: $imagen-size-small;
+      width: $imagen-size-small;
    }
 
    .second-user-before-choice {
@@ -659,16 +639,29 @@ body {
 
    // Result bettwen human and computer
 
+   .result {
+      align-items: center;
+   }
+
    .result-first-user,
    .result-second-user {
       display: grid;
       justify-items: center;
+      align-items: center;
+   }
+
+   .result-first-user {
+      margin-left: $margin-small-medium;
+   }
+
+   .result-second-user {
+      margin-right: $margin-small-medium;
    }
 
    .result-first-user-choice,
    .result-second-user-choice {
       grid-row: 2/2;
-      margin-top: -$margin-extra-huge-double;
+      margin-top: -80px;
       font-weight: $font-weight-bold;
       font-size: $font-size-small;
       line-height: $line-height-medium;
@@ -677,14 +670,11 @@ body {
       text-shadow: $core-shadow;
    }
 
-   .result-first-chosen-item-small,
-   .result-second-chosen-item-small {
-      display: block;
-   }
-
    .result-first-chosen-item,
    .result-second-chosen-item {
-      display: none;
+      height: $imagen-size-small;
+      width: $imagen-size-small;
+      border: none;
    }
 
    .result-finish {
@@ -701,38 +691,24 @@ body {
       border: 25px solid transparent;
    }
 
-   .result-firts-user-choice-item {
-      left: 29px;
-   }
-
-   .result-second-user-choice-item {
-      right: 21px;
-   }
-
-   .result-first-user-choice {
-      margin-left: 50px;
-   }
-
-   .result-second-user-choice {
-      margin-right: 50px;
-   }
-
-   .result-first-chosen-item-small,
-   .result-second-chosen-item-small {
-      border-radius: $radius-rounde;
-      border: 25px solid transparent;
-   }
-
    .winner {
       border-radius: $radius-rounde;
       padding: 25px;
+      padding-bottom: $padding-small;
       background-clip: padding-box;
-      background-color: rgba($color: $color-white, $alpha: 0.02);
-      border: 25px solid rgba($color: $color-white, $alpha: 0.01);
-   }
-
-   .winner-item {
-      border-radius: $radius-rounde;
+      background-color: rgba($color: $color-white, $alpha: 0.04);
       border: 25px solid rgba($color: $color-white, $alpha: 0.02);
    }
+}
+
+.active-section {
+   display: flex;
+}
+
+.active {
+   display: block;
+}
+
+.inactive {
+   display: none;
 }

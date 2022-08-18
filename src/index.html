@@ -35,9 +35,7 @@
                </div>
                <div class="header-score">
                   <div class="score-logo"><p class="logo-text">SCORE</p></div>
-                  <div class="score-counter">
-                     <p class="counter-number">12</p>
-                  </div>
+                  <div class="score-counter"></div>
                </div>
             </div>
          </header>
@@ -52,27 +50,20 @@
                <div class="choice-up">
                   <div class="up-paper">
                      <img
+                        data-item="paper"
+                        data-size="/assets/paper-large.png"
                         class="paper-img"
-                        src="/assets/paper-medium.png"
+                        src="/assets/paper.png"
                         alt="paper"
                      />
-                     <img
-                        class="paper-img-small"
-                        src="/assets/paper-small.png"
-                        alt="paper"
-                     />
-                  </div>
 
                   <div class="bettwen"></div>
                   <div class="up-scissors">
                      <img
+                        data-item="scissors"
+                        data-size="/assets/scissors-large.png"
                         class="scissors-img"
-                        src="/assets/scissors-medium.png"
-                        alt="scissors"
-                     />
-                     <img
-                        class="scissors-img-small"
-                        src="/assets/scissors-small.png"
+                        src="/assets/scissors.png"
                         alt="scissors"
                      />
                   </div>
@@ -81,13 +72,10 @@
                   <div class="before"></div>
                   <div class="down-rock">
                      <img
+                        data-item="rock"
+                        data-size="/assets/rock-large.png"
                         class="rock-img"
-                        src="/assets/rock-medium.png"
-                        alt="rock"
-                     />
-                     <img
-                        class="rock-img-small"
-                        src="/assets/rock-small.png"
+                        src="/assets/rock.png"
                         alt="rock"
                      />
                   </div>
@@ -104,23 +92,9 @@
          <!-- Section about winner or loser -->
 
          <section>
-            <div class="batle-result">
+            <div class="batle">
                <!-- First user choice -->
-               <div class="first-user">
-                  <p class="first-user-choice">YOU PICKED</p>
-                  <div class="firts-user-choice-item">
-                     <img
-                        class="first-chosen-item"
-                        src="assets/scissors-large.png"
-                        alt=""
-                     />
-                     <img
-                        class="first-chosen-item-small"
-                        src="assets/scissors-small.png"
-                        alt=""
-                     />
-                  </div>
-               </div>
+               <div class="first-user"></div>
                <!-- First user choice was finished -->
 
                <!-- Second user choice  -->
@@ -135,58 +109,7 @@
             </div>
 
             <!-- Result summary -->
-            <div class="result">
-               <!-- First choice humans block -->
-               <div class="result-first-user">
-                  <p class="result-first-user-choice">YOU PICKED</p>
-                  <div class="result-firts-user-choice-item winner">
-                     <img
-                        class="result-first-chosen-item winner-item"
-                        src="assets/scissors-large.png"
-                        alt=""
-                     />
-                     <img
-                        class="result-first-chosen-item-small winner-item"
-                        src="assets/scissors-small.png"
-                        alt=""
-                     />
-                  </div>
-               </div>
-
-               <!-- First choice humans block was finished-->
-
-               <!-- Middle block set winner and loser -->
-
-               <div class="result-finish">
-                  <p class="finish-winner">YOU WIN</p>
-                  <p class="finish-loser">YOU LOSE</p>
-                  <button class="start-again">PLAY AGAIN</button>
-               </div>
-
-               <!-- Middle block set winner and loser was finished -->
-
-               <!-- Second choice computer block -->
-
-               <div class="result-second-user">
-                  <p class="result-second-user-choice">THE HOUSE PICKED</p>
-                  <div class="result-second-user-choice-item">
-                     <img
-                        class="result-second-chosen-item"
-                        src="assets/rock-large.png"
-                        alt=""
-                     />
-                     <img
-                        class="result-second-chosen-item-small"
-                        src="assets/rock-small.png"
-                        alt=""
-                     />
-                  </div>
-               </div>
-            </div>
-
-            <!-- Second choice computer block was finished -->
-
-            <!-- Result summary was finished -->
+            <div class="result"></div>
          </section>
 
          <!-- Section about winner or loser was finished -->
@@ -203,7 +126,11 @@
                <div class="rules-modal">
                   <div class="cap-logo">RULES</div>
                   <div class="cap-close">
-                     <img src="/assets/close-rules.svg" alt="close-rules" />
+                     <img
+                        class="close-modal"
+                        src="/assets/close-rules.svg"
+                        alt="close-rules"
+                     />
                   </div>
                   <div class="modal-guide">
                      <img src="/assets/rules-guide.png" alt="rules-guide" />
