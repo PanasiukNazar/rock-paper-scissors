@@ -183,7 +183,7 @@ function renderHumasItem() {
 }
 
 function renderComputersItem() {
-   $result.innerHTML = ` 
+   $result.innerHTML = `
    <!-- First choice humans block -->
 
    <div class="result-first-user">
@@ -207,7 +207,7 @@ function renderComputersItem() {
 
    <div class="result-finish ${
       state.current.winner || state.current.computersItem !== '' ? 'active' : ''
-   }"> 
+   }">
       <p class="finish-winner ${
          state.current.winner !== '' ? 'active' : ''
       }">YOU WIN</p>
@@ -233,7 +233,7 @@ function renderComputersItem() {
             state.current.loser !== '' ? 'winner-item' : ''
          }" src="/assets/${state.current.computersItem}.png" />
    </div>
-   
+
    <!-- Second choice computer block was finished -->
 
    <!-- Result summary was finished -->
@@ -241,7 +241,7 @@ function renderComputersItem() {
 }
 
 function renderScore() {
-   $score.innerHTML = ` 
+   $score.innerHTML = `
    <p class="counter-number">${state.current.score}</p>
    `;
 }

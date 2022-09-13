@@ -57,9 +57,18 @@ $core-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
 // Core page styles
 
 body {
+   margin: 0;
+   overflow: hidden;
+   background: radial-gradient(
+      134.34% 134.34% at 50% 0%,
+      #1f3757 0%,
+      #131537 100%
+   );
+}
+
+#root {
    display: flex;
    justify-content: center;
-   overflow: hidden;
    margin: 0;
    height: $height-max;
    background: radial-gradient(
@@ -102,9 +111,9 @@ body {
 
 //  The same logo but mini
 
-.logo-small {
-   display: none;
-}
+// .logo-small {
+//    display: none;
+// }
 
 //
 
@@ -121,6 +130,7 @@ body {
 }
 
 .logo-text {
+   text-align: center;
    margin: 0;
    font-size: $font-size-small;
    font-weight: $font-weight-bold;
@@ -203,7 +213,7 @@ body {
 
    .before {
       position: relative;
-      right: 80px;
+      left: 110px;
       z-index: 0;
       width: $backdown-medium;
       padding: $padding-tiny;
@@ -214,7 +224,7 @@ body {
 
    .after {
       position: relative;
-      left: 80px;
+      left: 300px;
       bottom: 270px;
       z-index: 0;
       width: $backdown-medium;
@@ -281,8 +291,7 @@ body {
    display: none;
 }
 
-.result-firts-user-choice-item,
-.result-second-user-choice-item {
+.common-result-choice-item {
    position: relative;
    bottom: $position-large;
    border-radius: $radius-rounde;
@@ -290,8 +299,7 @@ body {
    border: $border-huge solid transparent;
 }
 
-.result-first-user-choice,
-.result-second-user-choice {
+.common-result-choice {
    position: relative;
    z-index: 0;
    font-size: $font-size-large;
@@ -303,18 +311,12 @@ body {
    margin-bottom: $margin-extra-huge;
 }
 
-.result-first-chosen-item,
-.result-second-chosen-item {
+.common-result-chosen-item {
    height: 100%;
    width: $imagen-size-big;
    border-radius: $radius-rounde;
    border: $border-huge solid transparent;
 }
-
-// .result-first-chosen-item-small,
-// .result-second-chosen-item-small {
-//    display: none;
-// }
 
 .winner-item {
    border-radius: $radius-rounde;
@@ -414,9 +416,8 @@ body {
 // Rules modal window
 
 .rules {
-   display: flex;
-   justify-content: center;
    display: none;
+   justify-content: center;
 }
 
 .rules-modal {
@@ -491,12 +492,13 @@ body {
       }
 
       .logo-big {
-         display: none;
+         width: 83px;
+         height: 48px;
       }
 
-      .logo-small {
-         display: block;
-      }
+      // .logo-small {
+      //    display: block;
+      // }
 
       .header-score {
          margin-top: $margin-tiny;
@@ -532,18 +534,19 @@ body {
       margin-top: $margin-extra-huge-double;
       width: 370px;
 
-      .up-paper {
+      .choice-up {
          display: flex;
          justify-content: center;
+         margin-bottom: 0;
       }
 
       .before {
-         left: -50px;
+         left: 65px;
          width: $imagen-size-small;
       }
 
       .after {
-         left: 50px;
+         left: 140px;
          bottom: 175px;
       }
 
@@ -561,12 +564,6 @@ body {
          padding-left: $padding-small;
          padding-right: $padding-small;
          display: block;
-      }
-
-      .paper-img:hover,
-      .scissors-img:hover,
-      .rock-img:hover {
-         background: rgba($color: $color-white, $alpha: 0.05);
       }
 
       .bettwen {
@@ -643,23 +640,21 @@ body {
       align-items: center;
    }
 
-   .result-first-user,
-   .result-second-user {
+   .player {
+      margin-left: $margin-small-medium;
+   }
+
+   .computer {
+      margin-right: $margin-small-medium;
+   }
+
+   .common-result {
       display: grid;
       justify-items: center;
       align-items: center;
    }
 
-   .result-first-user {
-      margin-left: $margin-small-medium;
-   }
-
-   .result-second-user {
-      margin-right: $margin-small-medium;
-   }
-
-   .result-first-user-choice,
-   .result-second-user-choice {
+   .common-result-choice {
       grid-row: 2/2;
       margin-top: -80px;
       font-weight: $font-weight-bold;
@@ -670,25 +665,23 @@ body {
       text-shadow: $core-shadow;
    }
 
-   .result-first-chosen-item,
-   .result-second-chosen-item {
-      height: $imagen-size-small;
-      width: $imagen-size-small;
-      border: none;
-   }
-
    .result-finish {
       position: absolute;
       top: 500px;
    }
 
-   .result-firts-user-choice-item,
-   .result-second-user-choice-item {
+   .common-result-choice-item {
       position: relative;
       bottom: 50px;
       border-radius: $radius-rounde;
       padding: 25px;
       border: 25px solid transparent;
+   }
+
+   .common-result-chosen-item {
+      height: $imagen-size-small;
+      width: $imagen-size-small;
+      border: none;
    }
 
    .winner {
