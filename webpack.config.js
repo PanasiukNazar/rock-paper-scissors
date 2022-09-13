@@ -9,13 +9,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = (env) => {
    const isProduction = env.production;
 
-   const optimizeJs = isProduction ? 'main.[contenthash].js' : 'main.js';
+   const optimizeJs = isProduction ? 'index.[contenthash].js' : 'index.js';
    const optimizeCss = isProduction ? 'main.[contenthash].css' : 'main.css';
 
    return {
       mode: isProduction ? 'production' : 'development',
 
-      entry: './src/app/main.js',
+      entry: './src/app/index.js',
 
       output: {
          filename: optimizeJs,
@@ -33,7 +33,7 @@ module.exports = (env) => {
 
       plugins: [
          new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: './public/index.html',
             minify: {
                removeAttributeQuotes: isProduction,
                collapseInlineTagWhitespace: isProduction,
@@ -69,6 +69,17 @@ module.exports = (env) => {
             {
                test: /\.s[ca]ss/,
                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+            },
+            {
+               test: /\.(js|jsx)$/,
+               exclude: /node_modules/,
+
+               use: {
+                  loader: 'babel-loader',
+                  options: {
+                     presets: ['@babel/preset-env', '@babel/preset-react'],
+                  },
+               },
             },
          ],
       },
