@@ -1,1 +1,1 @@
-[DEMO](https://panasiuknazar.github.io/calculator/)
+[DEMO](https://panasiuknazar.github.io/rock-paper-scissors/)
